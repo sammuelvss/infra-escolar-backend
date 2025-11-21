@@ -6,7 +6,7 @@
   },
   "extends": [
     "eslint:recommended",
-    "plugin:prettier/recommended" // Integra o Prettier com o ESLint
+    "plugin:prettier/recommended" 
   ],
   "parserOptions": {
     "ecmaVersion": 12,
