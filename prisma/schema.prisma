@@ -7,12 +7,62 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+model area_verde {
+  id_escola Int     @id
+  existe    String?
+}
+
+model biblioteca {
+  id_escola Int     @id
+  existe    String?
+}
+
+model escola {
+  id_escola   Int     @id
+  nome        String? @db.VarChar(255)
+  municipio   String? @db.VarChar(255)
+  endereco    String? @db.VarChar(255)
+  dependencia String? @db.VarChar(50)
+}
+
+model microdados {
+  no_municipio                  String?
+  no_entidade                   String?
+  tp_dependencia                String?
+  ds_endereco                   String?
+  nu_endereco                   String?
+  ds_complemento                String?
+  no_bairro                     String?
+  co_cep                        String?
+  in_area_verde                 String?
+  in_biblioteca                 String?
+  in_patio_coberto              String?
+  in_patio_descoberto           String?
+  in_quadra_esportes            String?
+  in_quadra_esportes_coberta    String?
+  in_quadra_esportes_descoberta String?
+  id_escola                     Int     @id @default(autoincrement())
+}
+
+model patio {
+  id_escola Int     @id
+  existe    String?
+  cobertura String?
+}
+
+model quadra {
+  id_escola Int     @id
+  existe    String?
+  cobertura String? @db.VarChar(50)
+}
+
 model User {
   id        String   @id @default(cuid())
   email     String   @unique
   password  String
   createdAt DateTime @default(now())
 }
+
 
 model Metric {
   id        String   @id @default(cuid())

@@ -4,15 +4,19 @@ import { prisma } from '../../prisma';
 /**
  * @swagger
  * /metrics:
- * get:
- * summary: Retorna dados para graficos
- * tags: [Metrics]
- * responses:
- * 200:
- * description: Sucesso
- * 401:
- * description: Nao autorizado
+ *   get:
+ *     summary: Retorna os dados para os gráficos
+ *     tags:
+ *       - Metrics
+ *     security:
+ *       - bearerAuth: []
+ *     responses:
+ *       200:
+ *         description: Lista de métricas encontradas
+ *       401:
+ *         description: Não autorizado
  */
+
 export const getMetrics = async (req: Request, res: Response) => {
     try {
         const metrics = await prisma.metric.findMany();
