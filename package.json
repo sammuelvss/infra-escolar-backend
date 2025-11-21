@@ -1,7 +1,7 @@
 "compilerOptions": {
-    // ... outras configs
+    
     "outDir": "./dist",
-    "rootDir": "./src" // Se seu código-fonte estiver na pasta src
+    "rootDir": "./src" 
 }{
   "name": "api-backend",
   "version": "1.0.0",
