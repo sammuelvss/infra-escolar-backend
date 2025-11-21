@@ -5,19 +5,19 @@ jobs:
   lint:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout code
+       name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Set up Node.js
+       name: Set up Node.js
         uses: actions/setup-node@v4
         with:
           node-version: '18.x'
 
-      - name: Clean npm cache
+       name: Clean npm cache
         run: npm cache clean --force
 
       
-      - name: Install dependencies (Excluding Prisma generation)
+       name: Install dependencies (Excluding Prisma generation)
        
         run: npm install --legacy-peer-deps --omit=optional
 
