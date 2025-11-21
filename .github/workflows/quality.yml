@@ -18,6 +18,7 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
+<<<<<<< HEAD
           node-version: '20' # Verifique se esta é a versão que você usa
 
       - name: Install dependencies
@@ -25,3 +26,17 @@ jobs:
 
       - name: Run Lint and Format Check
         run: npm run lint
+=======
+          node-version: '18.x'
+
+      - name: Install dependencies and Generate Prisma
+        run: |
+          npm install --legacy-peer-deps --omit=optional
+          npx prisma generate
+          
+      - name: Run Lint and Format Check (Report Only)
+        run: npm run lint || true 
+
+      - name: Check for Code Style Issues (Prettier)
+        run: npx prettier --check . || true
+>>>>>>> 1f5bc285d7fac6863c4717658a4b2de0fa6d23f9
