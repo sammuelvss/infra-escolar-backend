@@ -14,6 +14,10 @@
     "dev": "nodemon server.js"
   
 },
+  "scripts": {
+  "format": "prettier --write .",
+  "lint": "eslint ."
+}
   "dependencies": {
     "@prisma/client": "^5.x.x",
     "cors": "^2.8.5",
@@ -35,4 +39,5 @@
     "ts-node": "^10.9.2",
     "typescript": "^5.9.3"
   }
+  
 }
