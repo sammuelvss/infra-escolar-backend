@@ -21,7 +21,7 @@
     
   },
   "devDependencies": {
-    // TIPOS
+  
     "@types/cors": "^2.8.19",
     "@types/express": "^5.0.5",
     "@types/jsonwebtoken": "^9.0.10",
@@ -29,13 +29,13 @@
     "@types/swagger-jsdoc": "^6.0.4",
     "@types/swagger-ui-express": "^4.1.8",
 
-    // FERRAMENTAS
+    
     "nodemon": "^3.x.x",
     "prisma": "^5.x.x",
     "ts-node": "^10.9.2",
     "typescript": "^5.9.3",
 
-    // FERRAMENTAS DE QUALIDADE (NOVAS DEPENDÊNCIAS)
+    
     "eslint": "^9.x.x",
     "prettier": "^3.x.x",
     "eslint-config-prettier": "^9.x.x",
