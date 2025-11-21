@@ -21,24 +21,26 @@
     
   },
   "devDependencies": {
+    // TIPOS
     "@types/cors": "^2.8.19",
     "@types/express": "^5.0.5",
     "@types/jsonwebtoken": "^9.0.10",
     "@types/node": "^24.10.1",
     "@types/swagger-jsdoc": "^6.0.4",
     "@types/swagger-ui-express": "^4.1.8",
+
+    // FERRAMENTAS
     "nodemon": "^3.x.x",
     "prisma": "^5.x.x",
     "ts-node": "^10.9.2",
-    "typescript": "^5.9.3""@types/cors": "^2.8.19",
-    "@types/express": "^5.0.5",
-    "@types/jsonwebtoken": "^9.0.10",
-    "@types/node": "^24.10.1",
-    "@types/swagger-jsdoc": "^6.0.4",
-    "@types/swagger-ui-express": "^4.1.8",
-    "nodemon": "^3.x.x",
-    "prisma": "^5.x.x",
-    "ts-node": "^10.9.2",
-    "typescript": "^5.9.3"
+    "typescript": "^5.9.3",
+
+    // FERRAMENTAS DE QUALIDADE (NOVAS DEPENDÊNCIAS)
+    "eslint": "^9.x.x",
+    "prettier": "^3.x.x",
+    "eslint-config-prettier": "^9.x.x",
+    "eslint-plugin-prettier": "^5.x.x",
+    "@typescript-eslint/parser": "^7.x.x",
+    "@typescript-eslint/eslint-plugin": "^7.x.x"
   }
 }
