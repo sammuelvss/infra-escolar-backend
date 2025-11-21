@@ -1,4 +1,8 @@
-{
+"compilerOptions": {
+    // ... outras configs
+    "outDir": "./dist",
+    "rootDir": "./src" // Se seu código-fonte estiver na pasta src
+}{
   "name": "api-backend",
   "version": "1.0.0",
   "description": "API Backend para dashboard de infraestrutura escolar.",
