@@ -24,7 +24,7 @@ jobs:
         run: npm install
 
       - name: Run Lint and Format Check
-        run: npm run lint# ... (cabeçalho on: e jobs: lint:)
+        run: npm run lint
 
     steps:
       - name: Checkout code
@@ -33,13 +33,13 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '20' # Verifique se esta é a versão que você usa
+          node-version: '20'  
 
-      # --- GARANTIR A INSTALAÇÃO ANTES DO LINT ---
+     
       - name: Install dependencies
-        # Este comando instala TUDO que está em dependencies e devDependencies
+       
         run: npm install 
 
       - name: Run Lint and Format Check
-        # O script npm run lint usa o ESLint
+       
         run: npm run lint
