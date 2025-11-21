@@ -6,24 +6,24 @@
   "scripts": {
     "build": "tsc",
     "start": "node dist/index.js",
-<<<<<<< HEAD
+
     "dev": "nodemon server.js"
-<<<<<<< HEAD
+
   },
-=======
+
   
 },
   "scripts": {
   "format": "prettier --write .",
   "lint": "eslint ."
 }
->>>>>>> 6fd1c9fd62ea86016b3356b6a55fa6130387a869
-=======
+6fd1c9fd62ea86016b3356b6a55fa6130387a869
+
     "dev": "nodemon server.js",
     "format": "prettier --write .",
     "lint": "eslint ."
   },
->>>>>>> e1182f0b3f9d0ba1ea31e85f9de22be8e5f59650
+e1182f0b3f9d0ba1ea31e85f9de22be8e5f59650
   "dependencies": {
     "@prisma/client": "^5.x.x",
     "cors": "^2.8.5",
@@ -41,19 +41,15 @@
     "@types/jsonwebtoken": "^9.0.10",
     "@types/node": "^24.10.1",
     "@types/swagger-jsdoc": "^6.0.4",
-    "@types/swagger-ui-express": "^4.1.8",
-<<<<<<< HEAD
+
     "eslint": "^9.39.1",
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-prettier": "^5.5.4",
-=======
 
-<<<<<<< HEAD
-    // FERRAMENTAS
->>>>>>> e1182f0b3f9d0ba1ea31e85f9de22be8e5f59650
-=======
+ e1182f0b3f9d0ba1ea31e85f9de22be8e5f59650
+
     
->>>>>>> 1f5bc285d7fac6863c4717658a4b2de0fa6d23f9
+ 1f5bc285d7fac6863c4717658a4b2de0fa6d23f9
     "nodemon": "^3.x.x",
     "prettier": "^3.6.2",
     "prisma": "^5.x.x",
