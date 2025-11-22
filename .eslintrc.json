@@ -13,7 +13,7 @@
     "sourceType": "module"
   },
   "rules": {
-    // Adicione regras específicas do projeto aqui
+    
     "prettier/prettier": "error"
   }
 }
