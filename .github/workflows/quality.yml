@@ -1,11 +1,15 @@
 name: Code Quality Check
 
 on:
-# ... (trigger)
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
 
 jobs:
-  # O nome do job que o GitHub executa. Se for 'build-and-test', altere aqui:
-  build-and-test: 
+  build-and-test:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
@@ -14,18 +18,15 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '18' # Use '18' para maior estabilidade
+          node-version: '18'
 
       - name: Install dependencies and Generate Prisma
-        # Este passo é a causa da lentidão. Garanta que a sintaxe 'run: |' esteja correta.
         run: |
           npm install --legacy-peer-deps --omit=optional
           npx prisma generate
           
       - name: Run Lint and Format Check (Report Only)
-        # O comando lint (que estava falhando)
         run: npm run lint || true 
 
       - name: Check for Code Style Issues (Prettier)
-        # O comando prettier
         run: npx prettier --check . || true
