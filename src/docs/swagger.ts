@@ -13,7 +13,7 @@ export function setupSwagger(app: Express) {
         description: "Documentação da API Escolar",
       },
     },
-    // Lista explícita de TODOS os arquivos que têm documentação
+   
     apis: [
         "./src/index.ts", // Contém o Login
         "./src/modules/metrics/metrics.controller.ts", // Contém Métricas
