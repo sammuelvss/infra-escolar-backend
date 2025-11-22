@@ -1,29 +1,23 @@
 import swaggerUi from "swagger-ui-express";
 import swaggerJsdoc from "swagger-jsdoc";
 import { Express } from "express";
-import path from "path";
 
 export function setupSwagger(app: Express) {
   
-  // Pega o diretório raiz do projeto
-  const rootDir = process.cwd();
-
-  console.log("🔍 Swagger procurando arquivos em:", rootDir);
-
   const options = {
     definition: {
       openapi: "3.0.0",
       info: {
         title: "Dashboard API",
         version: "1.0.0",
-        description: "Documentação automática da API",
+        description: "Documentação da API Escolar",
       },
     },
-    // Caminhos explícitos e absolutos
+    // Lista explícita de TODOS os arquivos que têm documentação
     apis: [
-        path.join(rootDir, "src/index.ts"), 
-        path.join(rootDir, "src/modules/metrics/metrics.controller.ts"),
-        path.join(rootDir, "src/modules/auth/auth.controller.ts") 
+        "./src/index.ts", // Contém o Login
+        "./src/modules/metrics/metrics.controller.ts", // Contém Métricas
+        "./src/modules/schools/schools.controller.ts"  // Contém Escolas
     ], 
   };
 

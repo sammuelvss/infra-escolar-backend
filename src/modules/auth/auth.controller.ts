@@ -9,34 +9,38 @@ export const login = async (req: Request, res: Response) => {
     const { email, password } = req.body;
 
     try {
-        // 1. Busca o usuário pelo email
+        console.log(`Tentativa de login para: ${email}`); // Log para depuração
+
+        // 1. Busca o usuário
         const user = await prisma.user.findUnique({ where: { email } });
 
-        // Se não achou o usuário, erro
         if (!user) {
-             res.status(401).send('Credenciais inválidas (Email não encontrado)');
+             console.log('Usuário não encontrado no banco.');
+             res.status(401).send('Credenciais inválidas'); // Mensagem genérica por segurança
              return;
         }
 
-        
+        // 2. Compara a senha
         const isPasswordValid = await bcrypt.compare(password, user.password);
 
         if (!isPasswordValid) {
-            res.status(401).send('Credenciais inválidas (Senha incorreta)');
+            console.log('Senha incorreta.');
+            res.status(401).send('Credenciais inválidas');
             return;
         }
 
-       
+        // 3. Gera o token
         const accessToken = jwt.sign(
             { userId: user.id, email: user.email }, 
             JWT_SECRET, 
             { expiresIn: '1h' }
         );
 
+        console.log('Login com sucesso!');
         res.json({ token: accessToken });
 
     } catch (error) {
-        console.error(error);
-        res.status(500).send("Erro no login");
+        console.error('Erro no servidor:', error);
+        res.status(500).send("Erro interno no login");
     }
 };

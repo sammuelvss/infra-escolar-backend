@@ -5,7 +5,7 @@ import cors from 'cors';
 import { prisma } from './prisma';
 import { login } from './modules/auth/auth.controller';
 import { getMetrics } from './modules/metrics/metrics.controller';
-import { getSchools } from './modules/schools/schools.controller'; // <--- Importe isso
+import { getSchools } from './modules/schools/schools.controller'; 
 import { setupSwagger } from './docs/swagger';
 
 dotenv.config();
@@ -44,9 +44,37 @@ const authenticateToken = (req: AuthRequest, res: Response, next: NextFunction) 
 
 // --- Rotas ---
 
+/**
+ * @swagger
+ * /auth/login:
+ *   post:
+ *     summary: Realiza o login do usuário
+ *     tags:
+ *       - Auth
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               email:
+ *                 type: string
+ *               password:
+ *                 type: string
+ *     responses:
+ *       200:
+ *         description: Login realizado com sucesso
+ *       401:
+ *         description: Credenciais inválidas
+ */
 app.post('/auth/login', login);
+
+// Rota de Métricas (Documentação está no controller)
 app.get('/metrics', authenticateToken, getMetrics);
-app.get('/schools', authenticateToken, getSchools); // <--- Nova rota aqui
+
+// Rota de Escolas (Documentação está no controller)
+app.get('/schools', authenticateToken, getSchools);
 
 // --- Inicialização ---
 app.listen(PORT, () => {
