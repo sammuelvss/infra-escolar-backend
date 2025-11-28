@@ -1,46 +1,33 @@
-name: Code Quality Check
+name: CI Backend
 
 on:
   push:
-    branches:
-      - main
+    branches: [ "main" ]
   pull_request:
-    branches:
-      - main
+    branches: [ "main" ]
 
 jobs:
-  lint:
+  build-and-test:
     runs-on: ubuntu-latest
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-
-      - name: Set up Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: '20' # Verifique se esta é a versão correta
-
-      - name: Install dependencies
-        run: npm install
-
-      - name: Run Lint and Format Check
-        run: npm run lint
-# ... (cabeçalho on: e jobs: lint:)
 
     steps:
-      - name: Checkout code
+      - name: Baixar código
         uses: actions/checkout@v4
 
-      - name: Set up Node.js
+      - name: Instalar Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '20' # Verifique se esta é a versão que você usa
+          node-version: '20'
+          cache: 'npm'
 
-      # --- GARANTIR A INSTALAÇÃO ANTES DO LINT ---
-      - name: Install dependencies
-        # Este comando instala TUDO que está em dependencies e devDependencies
-        run: npm install 
+      - name: Instalar dependências
+        run: npm ci
 
-      - name: Run Lint and Format Check
-        # O script npm run lint usa o ESLint
-        run: npm run lint
+      - name: Gerar Prisma
+        run: npx prisma generate
+
+      - name: Verificar Qualidade (Lint)
+        run: npm run lint --if-present
+
+      - name: Tentar Build (Verificar se compila)
+        run: npm run build --if-present

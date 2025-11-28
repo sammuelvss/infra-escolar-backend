@@ -2,18 +2,22 @@ import express, { Request, Response, NextFunction } from 'express';
 import dotenv from 'dotenv';
 import jwt from 'jsonwebtoken';
 import cors from 'cors';
+import helmet from 'helmet';
 import { prisma } from './prisma';
-import { login } from './modules/auth/auth.controller';
+import { login, register } from './modules/auth/auth.controller';
 import { getMetrics } from './modules/metrics/metrics.controller';
 import { getSchools } from './modules/schools/schools.controller'; 
 import { setupSwagger } from './docs/swagger';
 
 dotenv.config();
 
+
 const app = express();
 const PORT = process.env.PORT || 3000;
 const JWT_SECRET = process.env.JWT_SECRET || 'default_secret_change_me';
 
+
+app.use(helmet());
 app.use(cors());
 app.use(express.json());
 
@@ -69,6 +73,7 @@ const authenticateToken = (req: AuthRequest, res: Response, next: NextFunction) 
  *         description: Credenciais inválidas
  */
 app.post('/auth/login', login);
+app.post('/auth/register', register);
 
 // Rota de Métricas (Documentação está no controller)
 app.get('/metrics', authenticateToken, getMetrics);
